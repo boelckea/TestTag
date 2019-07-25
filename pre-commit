@@ -4,7 +4,7 @@ START="{DATE:"
 END="}"
 
 FILES=$(git diff --name-only HEAD^ HEAD|grep -x '.*')
-grep -xl ".*" $FILES < /dev/null |\
+grep -l "$START.*$END" $FILES < /dev/null |\
 while read file;
 do
     DATE=$(date '+%Y-%m-%d %H:%M')
