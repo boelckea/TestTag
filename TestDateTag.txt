@@ -6,3 +6,9 @@ Dummy change
 2
 3
 sadsgdffgdg
+$date:
+$date
+${date:}
+${date:}
+${date}
+
