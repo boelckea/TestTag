@@ -4,4 +4,5 @@ Private Const mstrcVersion As String = "Allevo Master 3.6 ( $Date: 2017-06-22 16
 Datum ${DATE:yyyyMMdd}
 Dummy change
 2
+3
 
