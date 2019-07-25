@@ -7,11 +7,12 @@ FILES=$(git diff --name-only HEAD^ HEAD|grep -x '.*')
 grep -l "$START.*$END" $FILES < /dev/null |\
 while read file;
 do
-    DATE=$(date '+%Y-%m-%d %H:%M')
+	DATE=$(date '+%Y-%m-%d %H:%M')
 	echo "Setting date" $DATE "to file" $file 
-    sed "s,\($START\).*\($END\),\1$DATE\2," $file > /tmp/$$
-    mv /tmp/$$ $file
-    git add $file
+	echo "Revision " $(git show -s --format=%h)
+	sed "s,\($START\).*\($END\),\1$DATE\2," $file > /tmp/$$
+	mv /tmp/$$ $file
+	git add $file
 done
    
    
