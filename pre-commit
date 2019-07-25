@@ -10,7 +10,7 @@ do
     DATE=$(date '+%Y-%m-%d %H:%M')
 	echo "Setting date" $DATE "to file" $file 
     sed "s,\($START\).*\($END\),\1$DATE\2," $file > /tmp/$$
-    cp /tmp/$$ $file
+    mv /tmp/$$ $file
     git add $file
 done
    
