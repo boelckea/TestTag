@@ -1,0 +1,17 @@
+#!/bin/sh
+
+START="{DATE:"
+END="}"
+
+FILES=$(git diff --name-only HEAD^ HEAD|grep -x '.*')
+grep -xl ".*" $FILES < /dev/null |\
+while read file;
+do
+    DATE=$(date '+%Y-%m-%d %H:%M')
+	echo "Setting date" $DATE "to file" $file 
+    sed "s,\($START\).*\($END\),\1$DATE\2," $file > /tmp/$$
+    cp /tmp/$$ $file
+    git add $file
+done
+   
+   
