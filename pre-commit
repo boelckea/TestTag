@@ -1,6 +1,6 @@
 #!/bin/sh
 
-START="<span id=\"commitdate\">"
+START="<span id='commitdate'>"
 END="</span>"
 
 FILES=$(git diff --name-only HEAD^ HEAD)
