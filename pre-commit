@@ -1,9 +1,9 @@
 #!/bin/sh
 
-START="{DATE:"
-END="}"
+START="<span id=\"commitdate\">"
+END="</span>"
 
-FILES=$(git diff --name-only HEAD^ HEAD|grep -x '.*')
+FILES=$(git diff --name-only HEAD^ HEAD)
 grep -l "$START.*$END" $FILES < /dev/null |\
 while read file;
 do
